@@ -15,9 +15,6 @@ router.get("/", (req, res) => {
 
 router.post("/send-email", async (req, res) => {
   const { to, subject, text, password } = req.body;
-  console.log(req.body);
-  console.log(process.env.EMAIL_USER);
-  console.log(process.env.PASSWORD);
   if (password !== process.env.PASSWORD) {
     return res.status(403).send("Invalid password");
   }
